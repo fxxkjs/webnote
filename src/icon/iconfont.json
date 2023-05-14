@@ -1,0 +1,51 @@
+{
+  "id": "3952531",
+  "name": "wn",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1973416",
+      "name": "文件删除",
+      "font_class": "wenjianshanchu",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "1973697",
+      "name": "文件上传",
+      "font_class": "wenjianshangchuan",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "1973754",
+      "name": "新增文件夹",
+      "font_class": "wenjianjiatianjia",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "1973798",
+      "name": "删除文件夹",
+      "font_class": "wenjianjiashanchu",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "10792682",
+      "name": "新增空白文件表单_新增新建操作_jurassic",
+      "font_class": "jurassic_add-blankform",
+      "unicode": "e6f5",
+      "unicode_decimal": 59125
+    },
+    {
+      "icon_id": "31162515",
+      "name": "重命名",
+      "font_class": "zhongmingming",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    }
+  ]
+}
