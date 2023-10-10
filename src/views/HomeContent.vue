@@ -47,7 +47,7 @@
               v-show="cookieType === true && setType === true"><icon-svg iconname="wenjianshangchuan" /></i>
             <i @click="
               setleftNavType(item.title), delFolders(topNavType, leftNavType)
-            " v-show="cookieType === true && setType === true"><icon-svg iconname="wenjianjiashanchu" /></i>
+              " v-show="cookieType === true && setType === true"><icon-svg iconname="wenjianjiashanchu" /></i>
             <span v-if="item.value.length === 0">(空)</span>
           </div>
 
@@ -72,9 +72,8 @@
     </div>
 
     <el-dialog title="提示" :visible.sync="upDialogVisible" width="400px" :before-close="handleClose">
-      <el-upload ref="upload" class="upload-demo" drag multiple :action="upMdUrl"
-        :data="{ topNavType, leftNavType }" accept=".md" :before-upload="beforeUpload" :limit="12"
-        :on-exceed="exceed" with-credentials>
+      <el-upload ref="upload" class="upload-demo" drag multiple :action="upMdUrl" :data="{ topNavType, leftNavType }"
+        accept=".md" :before-upload="beforeUpload" :limit="12" :on-exceed="exceed" with-credentials>
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
         <div class="el-upload__tip" slot="tip">
@@ -514,6 +513,7 @@ export default {
           this.loading = false;
           this.registerDialogVisible = false;
           this.cookieType = true;
+          this.init()
           this.$message({ message: req.data.msg, type: "success" });
         } else {
           this.password = "";
@@ -804,28 +804,30 @@ export default {
         duration: 0,
       });
     },
+    // 初始化数据
+    async init() {
+      await this.setTopNav();
+      await this.setTopNavType();
+      await this.setLeftNav();
+    }
   },
   created() {
+
     getCookieType().then((req) => {
       req.data.code === 1
         ? (this.cookieType = true)
         : (this.cookieType = false);
     });
     setSession();
-    let this_ = this;
-    async function init() {
-      await this_.setTopNav();
-      await this_.setTopNavType();
-      await this_.setLeftNav();
+    this.init()
+    if (!navigator.vendor.includes("Apple")) {
+      console.log(`
+          ___  __        __  ___  ___
+    |  | |__  |__) |\\ | /  \\  |  |__
+    |/\\| |___ |__) | \\| \\__/  |  |___
+
+    `);
     }
-    init();
-    console.log(`
-      ___  __        __  ___  ___
-|  | |__  |__) |\\ | /  \\  |  |__
-|/\\| |___ |__) | \\| \\__/  |  |___
-
-
-`);
   },
   //  计算属性
 
